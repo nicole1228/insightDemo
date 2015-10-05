@@ -1,0 +1,97 @@
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+  /*color: #000000;*/
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #C0C0C0 ;
+  border: 1px solid #fff;
+}
+
+input[type="text"]
+{
+color:black;
+}
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  #background-color: #333;
+  background-color: white;
+  #color: #fff;
+  color: black;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  padding-top: 65px;
+  
+}
+
+h2 {font-size:80px;
+    text-shadow: 2px 2px 10px;}
+
+p1 {
+    margin-top: 100px;
+}
+
+p3 {
+    margin-top: 65px;
+    margin-bottom: 65px;
+    font-size: 45px;
+}
+
+p4 {
+    margin-top: 65px;
+    margin-bottom: 65px;
+    font-size: 30px;
+
+
+.btn-default, .btn-default:hover, .btn-default:focus {
+  color: #333;
+  text-shadow: none;
+  background-color: #C0C0C0;
+  border: 0px solid #fff;
+  box-shadow: 5px 5px 10px #888888;
+  text-shadow: 1px 1px 5px;
+  font-weight:200;
+}
+
+input[type="text"] {
+  color: black;
+  height:40px;
+  width:400px;
+  font-size:30px;
+  margin-top: 65px;
+  margin-left: 15px;
+
+}
+label{
+font-size: 30px;
+text-shadow: 1px 1px 2px;
+font-weight:100;
+}
+
+.navbar-collapse{
+    color:black;
+}
+.bs-example-navbar-collapse-1{
+background-color: white;
+color: white;
+}
+/*tspan{
+*font-size:30px;
+}*/
