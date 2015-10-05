@@ -22,7 +22,7 @@ def nytArticles(qList=["amazon"],headline='amazon', dates=("20131001","20151101"
 
     nytKey = "e5776a343b2afe42be49a27dea7f520d:11:72928865"
     request = "http://api.nytimes.com/svc/search/v2/articlesearch.%s%sfq=%s&%s&api-key=%s" % (outFormat, query, qFilter.replace(" ","%20"), params, nytKey)
-    print "API Request: %s" % request 
+    #print "API Request: %s" % request 
     try:
         response = requests.get(request)
         #print "API Response: %s" % response.json()
