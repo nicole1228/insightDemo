@@ -13,7 +13,7 @@ db = mdb.connect(user="root", passwd=' ', host="localhost", charset='utf8')
 
 @app.route('/')
 def cities_input():
-  return render_template("input.html")
+  return render_template("index.html")
 
 @app.route('/output')
 def sentiment_output(chartID = 'bar_id', chart_type = 'column', chart_height = 500):
@@ -90,19 +90,23 @@ def sentiment_output(chartID = 'bar_id', chart_type = 'column', chart_height = 5
   sorted_by_date = sorted(zip(query_results[0],probs,query_results[2]), key=lambda tup: tup[0])
   dateStr = map(lambda date: date.strftime('%m/%d/%Y'), zip(*sorted_by_date)[0])
   data =[{"y":a,"url":str(b)} for a,b in zip(zip(*sorted_by_date)[1],zip(*sorted_by_date)[2])]
-  chart = {"renderTo": chartID, "type": chart_type, "height": chart_height,}
-  series =[{"name": 'New York Times', "data": data}]
-  title = {"text": "Article Sentiments"}
-  xAxis = {"categories": dateStr}
-  yAxis = {"title": {"text": 'Sentiment'},
+  chart = {"renderTo": chartID, "type": chart_type, "height": chart_height, 
+           "backgroundColor": "#BFAF80",
+           "plotShadow": "True"}
+  
+  series =[{"name": 'New York Times', "data": data, "color":"#8C6954","borderColor":"#8C6954"}]
+  #title = {"text": "Article Sentiments", "style": {"color": "#FFFFFF","fontSize":"20"}}#"fontWeight":"bold",
+  title = {"text": "", "style": {"color": "#FFFFFF","fontSize":"20"}}#"fontWeight":"bold",
+  xAxis = {"categories": dateStr, "lineWidth": "2", "gridLineColor":"#FFFFFF", "labels": {"style": {"color": "#FFFFFF","fontSize":"20"}}}#"fontWeight":"bold",
+  yAxis = {"title": {"text": 'Sentiment', "gridLineColor":"#FFFFFF", "style": {"color": "#FFFFFF","fontSize":"20"}}, "gridLineWidth": "2",  "labels": {"style": {"color": "#FFFFFF","fontSize":"20"}},#"fontWeight":"bold",
            "max": "1",
            "min": "-1"}
   gif = ""
   if cum > .2:
-    string = "Sentiment Score: %2.0f%% Positive!" % cum
+    string = "Sentiment Score: %2.0f%%" % cum
     gif = "/static/img/tUp.gif"
   elif cum < -0.2 :
-    string = "Sentiment Score: %2.0f%% Positive!" % cum
+    string = "Sentiment Score: %2.0f%%" % cum
     gif = "/static/img/tDown.gif"
   else:
     string = ""
