@@ -12,9 +12,10 @@ def nytArticles(qList=["amazon"],headline='amazon', dates=("20131001","20151101"
     query = '?' 
     if useBody :
         query = '?q=%s&'% ('%22').join(qList)
-    
+    print "headline:", headline
+
 #     qFilter = 'headline:%s&fq=source:("The New York Times")' % headline
-    qFilter = 'headline:%s%%20AND%%20source:("The New York Times")%%20AND%%20news_desk:("%s")' % (headline, newsDString)
+    qFilter = 'headline:("%s")%%20AND%%20source:("The New York Times")%%20AND%%20news_desk:("%s")' % (headline.replace(" ","%20"), newsDString)
     #qFilter = 'headline:%s%%20AND%%20news_desk:("%s")' % (headline, newsDString)
     
     tup = dates+(page,)
